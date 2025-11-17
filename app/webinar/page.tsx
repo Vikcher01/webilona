@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
 import { Checkbox } from "@/components/ui/checkbox"
-import { Calendar, Clock, Users, CheckCircle, MessageCircle, Send, UserCheck, GraduationCap, Briefcase, X, CreditCard } from 'lucide-react'
+import { Calendar, Clock, Users, CheckCircle, MessageCircle, Send, UserCheck, GraduationCap, Briefcase, X } from 'lucide-react'
 import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
@@ -16,54 +16,22 @@ export default function WebinarLanding() {
   const [submitMessage, setSubmitMessage] = useState<{ type: "success" | "error"; text: string } | null>(null)
   const [showConsentDetails, setShowConsentDetails] = useState(false)
 
-  const handlePayment = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
     setSubmitMessage(null)
 
     const formData = new FormData(e.currentTarget)
-    const data = {
-      name: formData.get("name") as string,
-      email: formData.get("email") as string,
-      phone: formData.get("phone") as string,
-      telegram: formData.get("telegram") as string,
-    }
-
-    try {
-      const response = await fetch("/api/init-payment", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      })
-
-      const result = await response.json()
-
-      if (!response.ok) {
-        throw new Error(result.error || "Ошибка при инициализации платежа")
-      }
-
-      // Redirect to Tinkoff payment page
-      if (result.paymentUrl) {
-        window.location.href = result.paymentUrl
-      }
-    } catch (error: any) {
-      setSubmitMessage({
-        type: "error",
-        text: error?.message || "Произошла ошибка при инициализации платежа. Попробуйте еще раз.",
-      })
-    } finally {
-      setIsSubmitting(false)
-    }
-  }
-
-  const handleSubmit = async (formData: FormData) => {
-    setIsSubmitting(true)
-    setSubmitMessage(null)
 
     try {
       await submitRegistration(formData)
+      setSubmitMessage({
+        type: "success",
+        text: "Спасибо за регистрацию! Мы отправили вам ссылку на вебинар.",
+      })
+      setTimeout(() => {
+        setShowRegistrationForm(false)
+      }, 2000)
     } catch (error: any) {
       if (error?.digest === "NEXT_REDIRECT") return
 
@@ -97,7 +65,7 @@ export default function WebinarLanding() {
           <p className="text-gray-600">Заполните форму, чтобы получить доступ</p>
         </div>
 
-        <form onSubmit={handlePayment} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4">
           <Input
             type="text"
             name="name"
@@ -241,8 +209,7 @@ export default function WebinarLanding() {
             disabled={isSubmitting}
             className="w-full h-12 bg-emerald-600 hover:bg-emerald-700 text-white font-medium text-lg disabled:opacity-50"
           >
-            <CreditCard className="mr-2 h-5 w-5" />
-            {isSubmitting ? "Переход к оплате..." : "Оплатить доступ"}
+            {isSubmitting ? "Отправка..." : "Получить ссылку"}
           </Button>
         </form>
 
