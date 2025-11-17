@@ -100,8 +100,8 @@ export async function POST(request: NextRequest) {
 
     // Use Web Crypto API for SHA-256 hash
     const encoder = new TextEncoder()
-    const data = encoder.encode(tokenString)
-    const hashBuffer = await window.crypto.subtle.digest("SHA-256", data)
+    const encodedData = encoder.encode(tokenString)
+    const hashBuffer = await crypto.subtle.digest("SHA-256", encodedData)
     const hashArray = Array.from(new Uint8Array(hashBuffer))
     const token = hashArray.map((b) => b.toString(16).padStart(2, "0")).join("")
     
