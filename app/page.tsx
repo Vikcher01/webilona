@@ -329,37 +329,7 @@ export default function WebinarLanding() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-8 sm:py-12 lg:py-16 bg-emerald-600">
-        <div className="container mx-auto px-4 sm:px-6 text-center">
-          <div className="max-w-3xl mx-auto space-y-8">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">
-              Присоединяйтесь к нашему сообществу
-            </h2>
-            <p className="text-lg sm:text-xl text-emerald-100">
-              Узнавайте первыми о новых вебинарах и получайте полезные материалы
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center text-emerald-100">
-              <div className="flex items-center gap-2">
-                <Calendar className="h-5 w-5" />
-                <span className="font-medium">Регулярные мероприятия</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Users className="h-5 w-5" />
-                <span className="font-medium">Активное сообщество</span>
-              </div>
-            </div>
-
-            <Button
-              size="lg"
-              onClick={() => setIsModalOpen(true)}
-              className="bg-white hover:bg-gray-100 text-emerald-600 font-medium px-12 py-4 text-lg"
-            >
-              Зарегистрироваться сейчас
-            </Button>
-          </div>
-        </div>
-      </section>
+      
 
       {/* Telegram Section */}
       <section className="py-8 sm:py-12 lg:py-16 bg-gradient-to-br from-gray-900 to-gray-800">

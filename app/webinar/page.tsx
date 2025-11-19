@@ -157,7 +157,7 @@ export default function WebinarLanding() {
                   <li>фамилия;</li>
                   <li>отчество;</li>
                   <li>сведения о месте работы;</li>
-                  <li>номер мобильного телефона.</li>
+                  <li>н��мер мобильного телефона.</li>
                 </ul>
                 <p className="mt-2">3. Цели обработки персональных данных:</p>
                 <ul className="list-disc list-inside ml-4 mt-1">
