@@ -42,11 +42,29 @@ export async function POST(req: Request) {
     const { amount, orderId, description, customerData } = await req.json();
     console.log("[v0] Request data:", { amount, orderId, description });
 
+    const receipt = {
+      FfdVersion: "1.2",
+      Email: customerData?.email || "test@example.com",
+      Taxation: "usn_income",
+      Items: [
+        {
+          Name: description || "Оплата доступа к вебинару",
+          Price: amount,
+          Quantity: 1,
+          Amount: amount,
+          PaymentMethod: "full_payment",
+          PaymentObject: "service",
+          Tax: "none"
+        }
+      ]
+    };
+
     const basePayload: Record<string, any> = {
       TerminalKey: terminalKey,
       Amount: amount,
       OrderId: orderId,
       Description: description,
+      Receipt: receipt, // Added Receipt to payload
     };
 
     const token = await makeTinkoffToken(basePayload, secretKey);
