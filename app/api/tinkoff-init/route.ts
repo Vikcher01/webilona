@@ -54,7 +54,8 @@ export async function POST(req: Request) {
           Amount: amount,
           PaymentMethod: "full_payment",
           PaymentObject: "service",
-          Tax: "none"
+          Tax: "none",
+          MeasurementUnit: "pc" // Added required field
         }
       ]
     };
