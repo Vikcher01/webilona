@@ -1,8 +1,11 @@
 "use client"
 
+import type React from "react"
+
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Calendar, CheckCircle, X } from 'lucide-react'
+import { Checkbox } from "@/components/ui/checkbox"
+import { Calendar, CheckCircle, X } from "lucide-react"
 import { useState } from "react"
 
 interface RegistrationModalProps {
@@ -17,20 +20,32 @@ export function RegistrationModal({ isOpen, onClose }: RegistrationModalProps) {
     email: "",
     telegram: "",
   })
+  const [consents, setConsents] = useState({
+    ofertaAndRules: false,
+    marketing: false,
+    privacy: false,
+  })
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
+  const allConsentsGiven = consents.ofertaAndRules && consents.marketing && consents.privacy
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    
+
+    if (!allConsentsGiven) {
+      setError("Пожалуйста, подтвердите все обязательные согласия")
+      return
+    }
+
     console.log("[v0] Registration data:", formData)
     setIsLoading(true)
     setError(null)
-    
+
     try {
       const orderId = `ORDER-${Date.now()}-${Math.random().toString(36).substring(2, 9)}`
-      
+
       const response = await fetch("/api/tinkoff-init", {
         method: "POST",
         headers: {
@@ -45,7 +60,7 @@ export function RegistrationModal({ isOpen, onClose }: RegistrationModalProps) {
             phone: formData.phone,
             email: formData.email,
             telegram: formData.telegram,
-          }
+          },
         }),
       })
 
@@ -146,11 +161,84 @@ export function RegistrationModal({ isOpen, onClose }: RegistrationModalProps) {
                 disabled={isLoading}
               />
 
-              {error && (
-                <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700">
-                  {error}
+              <div className="space-y-3 pt-4 border-t border-gray-100">
+                <div className="flex items-start gap-3">
+                  <Checkbox
+                    id="ofertaAndRules"
+                    checked={consents.ofertaAndRules}
+                    onCheckedChange={(checked) => setConsents({ ...consents, ofertaAndRules: checked === true })}
+                    disabled={isLoading}
+                    className="mt-1"
+                  />
+                  <label htmlFor="ofertaAndRules" className="text-sm text-gray-700 cursor-pointer">
+                    Принимаю условия Публичной оферты и ознакомлен(а) с{" "}
+                    <a
+                      href="https://disk.yandex.ru/i/LDczzBL0-AfSIg"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-emerald-600 hover:text-emerald-700 underline"
+                    >
+                      правилами оказания услуг
+                    </a>
+                    {" *"}
+                  </label>
                 </div>
-              )}
+
+                <div className="flex items-start gap-3">
+                  <Checkbox
+                    id="marketing"
+                    checked={consents.marketing}
+                    onCheckedChange={(checked) => setConsents({ ...consents, marketing: checked === true })}
+                    disabled={isLoading}
+                    className="mt-1"
+                  />
+                  <label htmlFor="marketing" className="text-sm text-gray-700 cursor-pointer">
+                    Согласен(на) на получение{" "}
+                    <a
+                      href="https://disk.yandex.ru/i/JdaMoNdkQNr3UQ"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-emerald-600 hover:text-emerald-700 underline"
+                    >
+                      рекламной рассылки
+                    </a>
+                    {" *"}
+                  </label>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <Checkbox
+                    id="privacy"
+                    checked={consents.privacy}
+                    onCheckedChange={(checked) => setConsents({ ...consents, privacy: checked === true })}
+                    disabled={isLoading}
+                    className="mt-1"
+                  />
+                  <label htmlFor="privacy" className="text-sm text-gray-700 cursor-pointer">
+                    Согласен(на) с{" "}
+                    <a
+                      href="https://disk.yandex.ru/i/z49PDThNz9eC1A"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-emerald-600 hover:text-emerald-700 underline"
+                    >
+                      Политикой конфиденциальности
+                    </a>
+                    , даю{" "}
+                    <a
+                      href="https://disk.yandex.ru/i/6Dx1vU4SdAgwQg"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-emerald-600 hover:text-emerald-700 underline"
+                    >
+                      согласие на обработку персональных данных
+                    </a>
+                    {" *"}
+                  </label>
+                </div>
+              </div>
+
+              {error && <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700">{error}</div>}
 
               <div className="space-y-4 pt-4">
                 <div className="flex items-center gap-3 text-gray-700">
@@ -169,10 +257,13 @@ export function RegistrationModal({ isOpen, onClose }: RegistrationModalProps) {
                   type="submit"
                   size="lg"
                   className="bg-emerald-600 hover:bg-emerald-700 text-white font-medium px-12 py-6 text-lg w-full sm:w-auto disabled:opacity-50 disabled:cursor-not-allowed"
-                  disabled={isLoading}
+                  disabled={isLoading || !allConsentsGiven}
                 >
                   {isLoading ? "Обработка..." : "ЗАРЕГИСТРИРОВАТЬСЯ"}
                 </Button>
+                {!allConsentsGiven && (
+                  <p className="text-sm text-gray-500 mt-2">Для продолжения необходимо подтвердить все согласия</p>
+                )}
               </div>
             </form>
           </>
