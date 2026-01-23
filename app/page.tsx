@@ -52,7 +52,7 @@ export default function WebinarLanding() {
                 </h1>
 
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  Вебинар о том, как превратить хаос в систему, а планирование — в источник свободы, а не стресса.
+                  Онлайн-тренинг, на котором мы с вами составим планы на 2026 год.
                 </p>
 
                 <p className="text-lg text-gray-600 leading-relaxed">
@@ -64,7 +64,7 @@ export default function WebinarLanding() {
               <div className="space-y-4">
                 <div className="flex items-center gap-3 text-gray-700">
                   <Calendar className="h-5 w-5 text-emerald-600" />
-                  <span className="font-medium">17 июля, 12:00 по МСК</span>
+                  <span className="font-medium">29 января, 15:00 по МСК</span>
                 </div>
                 <div className="flex items-center gap-3 text-gray-700">
                   <Users className="h-5 w-5 text-emerald-600" />
@@ -107,7 +107,7 @@ export default function WebinarLanding() {
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">{"Что ждёт вас на вебинаре\n"} </h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">{"Что вас ждет на онлайн-тренинге"} </h2>
               
             </div>
 
@@ -116,8 +116,8 @@ export default function WebinarLanding() {
                 <div className="flex gap-4">
                   <CheckCircle className="h-6 w-6 text-emerald-600 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Что такое планирование на самом деле</h3>
-                    <p className="text-gray-600">{"почему это не про контроль, а про опору и уверенность.\n"}</p>
+                    <h3 className="font-semibold text-gray-900 mb-2">Небольшое количество важной теории о планировании. </h3>
+                    
                   </div>
                 </div>
               </div>
@@ -126,8 +126,8 @@ export default function WebinarLanding() {
                 <div className="flex gap-4">
                   <CheckCircle className="h-6 w-6 text-emerald-600 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Главные ошибки, которые мешают планировать </h3>
-                    <p className="text-gray-600">{"и как перестать «срываться» уже завтра.\n"}</p>
+                    <h3 className="font-semibold text-gray-900 mb-2">{"Главные ошибки, которые мешают планировать\nи как перестать «срываться» уже завтра."} </h3>
+                    
                   </div>
                 </div>
               </div>
@@ -136,8 +136,8 @@ export default function WebinarLanding() {
                 <div className="flex gap-4">
                   <CheckCircle className="h-6 w-6 text-emerald-600 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Инструменты живого планирования</h3>
-                    <p className="text-gray-600">{"как сочетать бумажные блокноты, технологии и здравый смысл.\n"}</p>
+                    <h3 className="font-semibold text-gray-900 mb-2">Большое количество вдохновляющей практики. Мы будем не просто говорить о планах, мы их напишем! По моему авторскому методу. </h3>
+                    
                   </div>
                 </div>
               </div>
@@ -146,8 +146,8 @@ export default function WebinarLanding() {
                 <div className="flex gap-4">
                   <CheckCircle className="h-6 w-6 text-emerald-600 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Как поддерживать себя, чтобы не сливаться</h3>
-                    <p className="text-gray-600 text-sm">{"и сделать план союзником, а не источником стресса.\n"}</p>
+                    <h3 className="font-semibold text-gray-900 mb-2">{"Как поддерживать себя, чтобы не сливаться\nи сделать план союзником, а не источником стресса."}</h3>
+                    
                   </div>
                 </div>
               </div>
@@ -161,7 +161,7 @@ export default function WebinarLanding() {
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Для кого вебинар</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Для кого этот тренинг</h2>
             </div>
 
             <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -169,9 +169,9 @@ export default function WebinarLanding() {
                 <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Target className="h-8 w-8 text-emerald-600" />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Предпринимателей и руководителей</h3>
+                <h3 className="font-semibold text-gray-900 mb-2">Для тех, кто еще не успел распланировать год</h3>
                 <p className="text-gray-600 text-sm">
-                  {"у которых 25 задач и ни одного свободного часа — чтобы вернуть ясность и фокус.\n"}
+                  {"и хочет сделать это в классной компании (нас будет не больше 10 человек) и с моей поддержкой."}
                 </p>
               </div>
 
@@ -179,9 +179,9 @@ export default function WebinarLanding() {
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Heart className="h-8 w-8 text-blue-600" />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Работающих мам и многозадачных женщин</h3>
+                <h3 className="font-semibold text-gray-900 mb-2">Для тех, кто разочаровался в планировании</h3>
                 <p className="text-gray-600 text-sm">
-                  {"которые хотят научиться жить в своём ритме без чувства вины.\n"}
+                  {"кто пробовал ежедневники, трекеры и марафоны,\nно в итоге чувствовал вину, давление и ощущение\n«со мной что-то не так»."}
                 </p>
               </div>
 
@@ -189,8 +189,8 @@ export default function WebinarLanding() {
                 <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Clock className="h-8 w-8 text-purple-600" />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Всех, кто хочет перестать бороться со временем</h3>
-                <p className="text-gray-600 text-sm">{"и построить систему, которая поддерживает, а не давит.\n"}</p>
+                <h3 className="font-semibold text-gray-900 mb-2">{"Для тех, кто устал жить в режиме тушения пожаров\n"}</h3>
+                <p className="text-gray-600 text-sm">{"кто много делает, много думает, много тянет на себе,\nи хочет наконец выстроить систему,\nкоторая поддерживает, а не выжимает до капли."}</p>
               </div>
             </div>
 
@@ -200,7 +200,7 @@ export default function WebinarLanding() {
                 onClick={() => setIsModalOpen(true)}
                 className="bg-emerald-600 hover:bg-emerald-700 text-white font-medium px-12 py-4 text-lg"
               >
-                Зарегистрироваться на вебинар
+                Зарегистрироваться 
               </Button>
             </div>
           </div>
@@ -309,12 +309,12 @@ export default function WebinarLanding() {
                 </div>
                 <div className="flex items-center gap-3 text-gray-700">
                   <Calendar className="h-5 w-5 text-emerald-600 flex-shrink-0" />
-                  <span>Дата и время (скоро будут)</span>
+                  <span>Дата и время 29 января, 15:00 по Мск    </span>
                 </div>
               </div>
 
               <div className="text-center py-6 border-t border-gray-100">
-                <div className="text-3xl font-bold text-gray-900 mb-4">2700 рублей</div>
+                <div className="text-3xl font-bold text-gray-900 mb-4">4500 рублей</div>
                 <Button
                   size="lg"
                   onClick={() => setIsModalOpen(true)}

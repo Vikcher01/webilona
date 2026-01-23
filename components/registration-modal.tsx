@@ -247,12 +247,12 @@ export function RegistrationModal({ isOpen, onClose }: RegistrationModalProps) {
                 </div>
                 <div className="flex items-center gap-3 text-gray-700">
                   <Calendar className="h-5 w-5 text-emerald-600 flex-shrink-0" />
-                  <span>Дата и время (скоро будут)</span>
+                  <span>Дата и время 29 января, 15:00 по Мск    </span>
                 </div>
               </div>
 
               <div className="text-center py-6 border-t border-gray-100 mt-6">
-                <div className="text-3xl font-bold text-gray-900 mb-4">2700 рублей</div>
+                <div className="text-3xl font-bold text-gray-900 mb-4">4500 рублей</div>
                 <Button
                   type="submit"
                   size="lg"
