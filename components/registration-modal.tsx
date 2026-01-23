@@ -52,7 +52,7 @@ export function RegistrationModal({ isOpen, onClose }: RegistrationModalProps) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          amount: 270000,
+          amount: 450000,
           orderId: orderId,
           description: `Вебинар - ${formData.name}`,
           customerData: {
