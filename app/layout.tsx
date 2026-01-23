@@ -3,9 +3,21 @@ import type { Metadata } from "next"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "Webinar Landing Page",
-  description: "Webinar registration page for Choosy Recruitment",
-  generator: "v0.dev",
+  title: 'Онлайн-тренинг "Звучит как план"',
+  description: "Узнайте, как превратить хаос в систему и планировать без давления",
+  openGraph: {
+    title: 'Онлайн-тренинг "Звучит как план"',
+    description: "Узнайте, как превратить хаос в систему и планировать без давления",
+    type: "website",
+    locale: "ru_RU",
+    siteName: "Choosy Recruitment",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: 'Онлайн-тренинг "Звучит как план"',
+    description: "Узнайте, как превратить хаос в систему и планировать без давления",
+  },
+    generator: 'v0.app'
 }
 
 export default function RootLayout({
